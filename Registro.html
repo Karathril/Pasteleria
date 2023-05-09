@@ -3,23 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="Estilo_Registro.css"/>
+    <title>Registro</title>
+    <link rel="stylesheet" href="Styles/Estilo_Registro.css"/>
 </head>
 <body>
-    <section class="contacto">
-        <div class="formulario-contacto">
-            <h1>PASTELERIA <span>REGISTRO</span></h1>
-            <p>dhjfbgdfjhgbfhdjgbdj</p>
-            <form action="">
-                <input type="" placeholder="Nombre Completo" required>
-                <input type="" placeholder="Edad" required>
-                <input type="email" name="email" id="" placeholder="Correo" required>
-                <input type="password" placeholder="Contraseña" required >
-                </textarea>
-                <input type="submit" name="" value="Enviar" class="btn">
+    <div class="contacto">
+        
+        <div class="formulario">
+            
+            <form action="" id="registro">
+        
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo">
+                <br>
+                <input type="email" name="email" id="email" placeholder="Correo electronico">
+                <br>
+                <input type="password" name="password" id="password" placeholder="Contraseña">
+                <br>
+                <input type="reset" value="limpiar">
+                <button type="button" id="guardar">Registrarme</button>
             </form>
+            
         </div>
-    </section>
+
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+<script src="Registro.js"></script>
 </body>
 </html>
