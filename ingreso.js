@@ -10,11 +10,6 @@ $.validator.addMethod("terminaPor",function(value, element, parametro){
 
 $("#registro").validate({
     rules: {
-        nombre: {
-            required: true,
-            minlength: 3,
-            maxlength: 40
-        },
         email: {
             required: true,
             email: true,
@@ -30,7 +25,7 @@ $("#registro").validate({
     }
 })
 
-$("#guardar").click(function(){
+$("#ingresar").click(function(){
     let nombre =$("#nombre").val()
     let email =$("#email").val()
     let password =$("#password").val()
