@@ -24,7 +24,7 @@
               Nuestros productos
             </a>
             <ul class="dropdown-menu ">
-              <li><a class="dropdown-item d-flex flex-column" href="Tortas.html"> <img src="Images/Ima_index/cakee.jpg" alt="Bootstrap" width="100"
+              <li><a class="dropdown-item d-flex flex-column" id="btn-cinnamon1" href="Tortas.html"> <img src="Images/Ima_index/cakee.jpg" alt="Bootstrap" width="100"
                     height="100">Tortas</a></li>
               <li><a class="dropdown-item d-flex flex-column" href="CinnamonRolls.html"> <img src="Images/Ima_index/cinamon.jpg" alt="Bootstrap"
                     width="100" height="100">Cinnamons</a></li>
@@ -35,7 +35,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="Promociones.html">Promociones</a>
+            <a class="nav-link active" id="btn-all" aria-current="page" href="Promociones.html">Promociones</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="Contacto.html">Contacto</a>
@@ -43,7 +43,33 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Sobre nosotros</a>
           </li>
-          <i class="fa-thin fa-user" style="color: #000000;"></i>
+          <!--NAV-CARRITO DE COMPRA-->
+          <li class="nav-icon">
+            <div class="container-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-cart cart-icon">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" stroke="black" />
+                </svg>          
+              <div class="count-products">
+                <span class="contador-productos">0</span>
+              </div>  
+              <div class="container-cart-products hidden-cart">
+                <div class="cart-product">
+                  <div class="info-cart-product">
+                    <span class="count-cart-product"></span>
+                    <p class="title-cart-product"></p>
+                    <span id="price-cart-product"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-close">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>                    
+                  </div>
+                </div>
+                <div class="cart-total">
+                  <h3>Total:</h3>
+                  <span class="total-pagar"></span>
+                </div>
+              </div>        
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -101,43 +127,30 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-
-
-  <div class="container-fluid text-center m-0">
-
+  <div class="container-fluid text-center m-0" id="contenedor-main">
     <img src="Images/Ima_index/cakeBrand.png" alt="" width="100" height="100">
-
     <h3 class="text-center">
       Nuestros productos
     </h3>
-
     <div class="container-fluid">
       <div class="row">
-
         <div class="col-4">
-
           <div class="card">
             <img src="Images/Ima_index/cakestr.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <a href="#" class="btn btn-danger">Cakes</a>
             </div>
           </div>
-
         </div>
-
         <div class="col-4">
-
           <div class="card">
             <img src="Images/Ima_index/ccc.webp" class="card-img-top" alt="...">
             <div class="card-body">
               <a href="#" class="btn btn-danger">Cupcakes</a>
             </div>
           </div>
-
         </div>
-
         <div class="col-4">
-
           <div class="card">
             <img src="Images/Ima_index/classic-strawberry-pie.webp" class="card-img-top" alt="...">
             <div class="card-body">
@@ -151,14 +164,13 @@
           <div class="card">
             <img src="Images/Ima_index/ccinamon.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <a href="#" class="btn btn-danger">Cinnamon rolls</a>
+              <a href="CinnamonRolls.html" class="btn btn-danger" id="btn-cinnamon">Cinnamon rolls</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <footer class="bg-pink py-5 mt-3">
     <div class="container">
       <div class="row">
@@ -204,12 +216,10 @@
       </div>
     </div>
   </footer>
-
-
-
-
-
-
+  <!--FUNTIONS JS-->
+  <script src="index.js"></script>
+  <!--JQUERY-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
     integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
     crossorigin="anonymous"></script>
@@ -217,5 +227,5 @@
     integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
     crossorigin="anonymous"></script>
 </body>
-
 </html>
+
