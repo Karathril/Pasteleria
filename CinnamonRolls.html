@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!--Metadato-->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <meta name="description" content="Proyecto Pasteleria">
-    <!--Reset-->
-    <link rel="stylesheet" href="Styles/normalize.css">
-    <!--Descripcion-->
-    <title>Cinnamon Rolls</title>
-    <!--Favicon 48x48px-->
-    <link rel="shortcut icon" href="#" type="image/x-icon">
-    <!--Bootsrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <!--CSS-->
-    <link rel="stylesheet" href="Styles/style_Nuestros_Productos.css">
+  <!--Metadato-->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Proyecto Pasteleria">
+  <!--Reset-->
+  <link rel="stylesheet" href="Styles/normalize.css">
+  <!--Descripcion-->
+  <title>Cinnamon Rolls</title>
+  <!--Favicon 48x48px-->
+  <link rel="shortcut icon" href="#" type="image/x-icon">
+  <!--Bootsrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <!--CSS-->
+  <link rel="stylesheet" href="Styles/style_Nuestros_Productos.css">
+  <link rel="stylesheet" href="Styles/style_index.css">
 </head>
 <body>
   <!--Barra de navegacion-->
@@ -35,7 +36,7 @@
               Nuestros productos
             </a>
             <ul class="dropdown-menu ">
-              <li><a class="dropdown-item d-flex flex-column" href="Tortas.html"> <img src="Images/Ima_index/cakee.jpg" alt="Bootstrap" width="100"
+              <li><a class="dropdown-item d-flex flex-column" id="btn-cinnamon1" href="Tortas.html"> <img src="Images/Ima_index/cakee.jpg" alt="Bootstrap" width="100"
                     height="100">Tortas</a></li>
               <li><a class="dropdown-item d-flex flex-column" href="CinnamonRolls.html"> <img src="Images/Ima_index/cinamon.jpg" alt="Bootstrap"
                     width="100" height="100">Cinnamons</a></li>
@@ -46,7 +47,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="Promociones.html">Promociones</a>
+            <a class="nav-link active" id="btn-all" aria-current="page" href="Promociones.html">Promociones</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="Contacto.html">Contacto</a>
@@ -54,7 +55,21 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Sobre nosotros</a>
           </li>
-          <i class="fa-thin fa-user" style="color: #000000;"></i>
+          <!--NAV-CARRITO DE COMPRA-->
+          <li class="nav-icon">
+            <div class="container-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-cart cart-icon">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" stroke="black" />
+                </svg>          
+              <div class="count-products">
+                <span class="contador-productos">0</span>
+              </div>  
+              <div id="cart-cards" class="container-cart-products hidden-cart">
+                
+              </div>
+              
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -62,88 +77,8 @@
   <!--Fondo-->
   <h1 class="titulo-tienda">Cinnamon Rolls</h1>
   <div class="container text-center">
-        <div class="row card-deck">
-          <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
-            <div class="card">
-              <img src="Images/Ima_Nuestro_Productos/NO-IMAGES.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Producto 1</h5>
-                <p class="card-text">Aquí va una breve descripcion del producto correspondiente a la card.</p>
-                <a href="#" class="btn btn-success">Agregar al carrito</a>
-                
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
-            <div class="card">
-              <img src="Images/Ima_Nuestro_Productos/NO-IMAGES.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Producto 2</h5>
-                <p class="card-text">Aquí va una breve descripcion del producto correspondiente a la card.</p>
-                <a href="#" class="btn btn-success">Agregar al carrito</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
-            <div class="card">
-              <img src="Images/Ima_Nuestro_Productos/NO-IMAGES.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Producto 3</h5>
-                <p class="card-text">Aquí va una breve descripcion del producto correspondiente a la card.</p>
-                <a href="#" class="btn btn-success">Agregar al carrito</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
-            <div class="card">
-              <img src="Images/Ima_Nuestro_Productos/NO-IMAGES.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Producto 4</h5>
-                <p class="card-text">Aquí va una breve descripcion del producto correspondiente a la card.</p>
-                <a href="#" class="btn btn-success">Agregar al carrito</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
-            <div class="card">
-              <img src="Images/Ima_Nuestro_Productos/NO-IMAGES.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Producto 5</h5>
-                <p class="card-text">Aquí va una breve descripcion del producto correspondiente a la card.</p>
-                <a href="#" class="btn btn-success">Agregar al carrito</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
-            <div class="card">
-              <img src="Images/Ima_Nuestro_Productos/NO-IMAGES.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Producto 6</h5>
-                <p class="card-text">Aquí va una breve descripcion del producto correspondiente a la card.</p>
-                <a href="#" class="btn btn-success">Agregar al carrito</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
-            <div class="card">
-              <img src="Images/Ima_Nuestro_Productos/NO-IMAGES.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Producto 7</h5>
-                <p class="card-text">Aquí va una breve descripcion del producto correspondiente a la card.</p>
-                <a href="#" class="btn btn-success">Agregar al carrito</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
-            <div class="card">
-              <img src="Images/Ima_Nuestro_Productos/NO-IMAGES.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Producto 8</h5>
-                <p class="card-text">Aquí va una breve descripcion del producto correspondiente a la card.</p>
-                <a href="#" class="btn btn-success">Agregar al carrito</a>
-              </div>
-            </div>
-          </div>
+        <div class="row card-deck" id="info-cards-cinnamon">
+          
         </div>
       </div>
     </div>
@@ -194,7 +129,10 @@
       </div>
     </div>
   </footer>
-
+  <!---JavaScript-->
+  <script src="index.js"></script>
+  <!--Jquery-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!--Scrip Bootstrap-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
