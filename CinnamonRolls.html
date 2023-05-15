@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <!--Metadato-->
   <meta charset="UTF-8">
@@ -13,14 +14,17 @@
   <!--Favicon 48x48px-->
   <link rel="shortcut icon" href="#" type="image/x-icon">
   <!--Bootsrap-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <!--CSS-->
   <link rel="stylesheet" href="Styles/style_Nuestros_Productos.css">
   <link rel="stylesheet" href="Styles/style_index.css">
 </head>
+
 <body>
   <!--Barra de navegacion-->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" style="min-height: 5rem; font-size: 20px; background-color: #ff9eb5 !important;">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary"
+    style="min-height: 5rem; font-size: 20px; background-color: #ff9eb5 !important;">
     <div class="container-fluid">
       <a class="navbar-brand" href="Index.html">
         <img src="Images/Ima_index/cakeBrand.png" alt="Bootstrap" width="100" height="100">
@@ -36,14 +40,14 @@
               Nuestros productos
             </a>
             <ul class="dropdown-menu ">
-              <li><a class="dropdown-item d-flex flex-column" id="btn-cinnamon1" href="Tortas.html"> <img src="Images/Ima_index/cakee.jpg" alt="Bootstrap" width="100"
-                    height="100">Tortas</a></li>
-              <li><a class="dropdown-item d-flex flex-column" href="CinnamonRolls.html"> <img src="Images/Ima_index/cinamon.jpg" alt="Bootstrap"
-                    width="100" height="100">Cinnamons</a></li>
-              <li><a class="dropdown-item d-flex flex-column" href="Cupcakes.html"> <img src="Images/Ima_index/cup.webp" alt="Bootstrap" width="100"
-                    height="100">Cupcakes</a></li>
-              <li><a class="dropdown-item d-flex flex-column" href="Pies.html"> <img src="Images/Ima_index/pie.jpg" alt="Bootstrap" width="100"
-                    height="100">Pies</a></li>
+              <li><a class="dropdown-item d-flex flex-column" href="Tortas.html"> <img
+                    src="Images/Ima_index/navCake.jpg" alt="Bootstrap" width="100" height="100">Tortas</a></li>
+              <li><a class="dropdown-item d-flex flex-column" href="CinnamonRolls.html"> <img
+                    src="Images/Ima_index/navRolls.jpg" alt="Bootstrap" width="100" height="100">Cinnamons</a></li>
+              <li><a class="dropdown-item d-flex flex-column" href="Cupcakes.html"> <img
+                    src="Images/Ima_index/navCupcakes.webp" alt="Bootstrap" width="100" height="100">Cupcakes</a></li>
+              <li><a class="dropdown-item d-flex flex-column" href="Pies.html"> <img src="Images/Ima_index/navPie.jpg"
+                    alt="Bootstrap" width="100" height="100">Pies</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -58,16 +62,19 @@
           <!--NAV-CARRITO DE COMPRA-->
           <li class="nav-icon">
             <div class="container-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-cart cart-icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" stroke="black" />
-                </svg>          
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6 icon-cart cart-icon">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+                  stroke="black" />
+              </svg>
               <div class="count-products">
                 <span class="contador-productos">0</span>
-              </div>  
-              <div id="cart-cards" class="container-cart-products hidden-cart">
-                
               </div>
-              
+              <div id="cart-cards" class="container-cart-products hidden-cart">
+
+              </div>
+
             </div>
           </li>
         </ul>
@@ -77,13 +84,13 @@
   <!--Fondo-->
   <h1 class="titulo-tienda">Cinnamon Rolls</h1>
   <div class="container text-center">
-        <div class="row card-deck" id="info-cards-cinnamon">
-          
-        </div>
-      </div>
+    <div class="row card-deck" id="info-cards-cinnamon">
+
     </div>
   </div>
-  <!--Footer--> 
+  </div>
+  </div>
+  <!--Footer-->
   <footer class="bg-pink py-5 mt-3">
     <div class="container">
       <div class="row">
@@ -134,6 +141,9 @@
   <!--Jquery-->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!--Scrip Bootstrap-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

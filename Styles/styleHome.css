@@ -1,5 +1,5 @@
 body {
-  background-image: url(pastel.png);
+  background-image: url(background.png);
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -33,8 +33,6 @@ body {
   background-color: #ff9eb5;
 
 }
-
-
 
 .card{
   transition: box-shadow 0.3s ease;
