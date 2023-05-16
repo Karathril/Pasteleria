@@ -32,6 +32,18 @@ body {
 
 }
 
+/*BTN INICIO SESION Y REGISTRO*/
+
+#btn-iniciarSesion{
+  position: absolute;
+  margin-left: 22%;
+  margin-top: 6px;
+}
+#btn-registrarse{
+  position: absolute;;
+  margin-left: 16%;
+  margin-top: 6px;
+}
 /*CARD*/
 
 .card{
