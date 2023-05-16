@@ -19,6 +19,11 @@
             "id":4,
             "name":"Pie",
             "description":"Pies frescos y innovadores"
+        },
+        {
+          "id": 5,
+          "name": "user",
+          "description": "Datos de usuarios"
         }
     ],
 
@@ -168,5 +173,21 @@
                 "image":"Images/Ima_Nuestro_Productos/pie/3-pie-de-maracuyá.jpg"
             }
 
+    ],
+    "users": [
+      {
+        "name": "admin",
+        "email": "admin@gmail.com",
+        "password": "a1@",
+        "categoryId": 5,
+        "id": 1
+      },
+      {
+        "name": "sdfsdf",
+        "email": "sdjfhs@gmail.com",
+        "password": "a1@",
+        "categoryId": 5,
+        "id": 2
+      }
     ]
 }
