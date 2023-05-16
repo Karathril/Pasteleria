@@ -22,7 +22,7 @@ $(document).ready(function() {
         }else{
             $.getJSON('Content-jsonServer/db.json', function(data) {
                 
-                var nuevoProducto = {
+                var nuevoUser = {
                     name: v_nombre,
                     email: v_email,
                     password: v_password,
@@ -32,7 +32,7 @@ $(document).ready(function() {
                 $.ajax({
                     type: "POST",
                     url: "http://localhost:3000/users",
-                    data: JSON.stringify(nuevoProducto),
+                    data: JSON.stringify(nuevoUser),
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (data) {
@@ -42,6 +42,8 @@ $(document).ready(function() {
                         console.error("Ha ocurrido un error al intentar agregar el nuevo producto: " + error);
                     }
                 });
+
+                window.location.href = "index.html";
             });
         };
     });
