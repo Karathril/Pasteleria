@@ -1,6 +1,4 @@
 $(document).ready(function() {
-    var usuarios = [];
-    /* función del botón usado desde registro.html */
     $("#guardar").click(function(){
         var v_nombre =$("#nombre").val()
         var v_email =$("#email").val()
@@ -8,7 +6,6 @@ $(document).ready(function() {
         var v_compro_email =$("#compro_email").val()
         var v_compro_password =$("#compro_password").val()
         var v_Apellido_Paterno =$("#Apellido_Paterno").val()
-        var v_id =(1);
 
         if (/\s/g.test(v_nombre)==true || /\d/.test(v_nombre)==true || v_nombre=="" || /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(v_nombre)){ 
             alert("error con el nombre");
@@ -23,34 +20,31 @@ $(document).ready(function() {
         }else if (v_compro_password!==v_password){
             alert("contraseña no coincide");
         }else{
-            usuarios.push({id: v_id, email: v_email, password: v_password});
-            v_id ++;
-            alert(usuarios[0].email);
-        };
-
-    });
-
-    /* función del botón usado desde ingreso.html (para probarlo con el array se uso un apartado en la pagina registro.html) */
-    $("#login").click(function( ){
-        var ingreso_email =$("#ingreso_email").val()
-        var ingreso_password =$("#ingreso_password").val()
-        
-        function verificarUsuario(ingreso_email, ingreso_password, usuarios) {
-            for (let i = 0; i < usuarios.length; i++) {
-                if (usuarios[i].email === ingreso_email && usuarios[i].password === ingreso_password) {
-                    return true;
+            $.getJSON('Content-jsonServer/db.json', function(data) {
+                
+                var nuevoProducto = {
+                    name: v_nombre,
+                    email: v_email,
+                    password: v_password,
+                    categoryId: 5
                 };
-            };
-            return false;
-        };
 
-        if (verificarUsuario(ingreso_email, ingreso_password, usuarios)) {
-            alert("correcto");
-        }else{
-            alert("malo");
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:3000/users",
+                    data: JSON.stringify(nuevoProducto),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        console.log("El nuevo producto se ha agregado con éxito.");
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Ha ocurrido un error al intentar agregar el nuevo producto: " + error);
+                    }
+                });
+            });
         };
     });
-
 });
 
 
