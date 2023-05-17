@@ -1,0 +1,20 @@
+|   INTEGRANTES      |
+|--------------------|
+|    Alonso Gómez    |
+|  Jennifer Celedón  |
+|   Brayan Moreno    |
+|--------------------|
+______________________________________________________________________________________________________________________________
+                                                                                                                              |
+Antes de iniciar el Proyecto seguir los siguientes pasos:                                                                     |
+                                                                                                                              |
+1) Abrir el proyecto visual Studio y en la opcion superior "Terminal" -> Nueva Terminal                                       |
+2) cd Content-jsonServer/                                                                                                     |
+3) Los siguientes pasos son para actualizar los datos para json-server (API)                                                  |
+4) npm init -y     (ESTO CONFIGURARÁ Y DARA INFORMACION DEL PROYECTO PARA LA API LOCAL)                                       |
+5) Luego ejecutar: i json-server (ESTO EXTRAERÁ UN MODULO PARA UTILIZAR)                                                      |
+6) Ya se actualizó y/o configuró el json-server para utilizar nuestra estructura de datos "db.json"!!                         |
+7) En Content-jsonServer/ ejecutaremos: npm run server (json-server se enciende y ya se podría abrir el proyecto index.html)  |
+                                                                                                                              |
+--Para detener el servidor json-server (CTRL + C)                                                                             |
+______________________________________________________________________________________________________________________________|

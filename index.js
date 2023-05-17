@@ -21,7 +21,14 @@ const clickAgregar = async (event) => {
     console.log(error);
   }
 };
+<<<<<<< HEAD
 function mostrarProductosEnCarrito(datosArray) {
+=======
+
+//FUNCION PARA MOSTRAR PRODUCTOS ELEGIDOS EN CARRITO
+function mostrarProductosEnCarrito() {
+  const datosArray = obtenerDatosDelCarrito();
+>>>>>>> user-principal
   let cartas = '';
   datosArray.forEach(element => {
     let title = element.name;
@@ -34,7 +41,11 @@ function mostrarProductosEnCarrito(datosArray) {
           <img src="${image}" alt="" style="width: 80px; height: 80px;">
           <p class="title-cart-product">${title}</p>
           <span id="price-cart-product">${precio}</span>
+<<<<<<< HEAD
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-close">
+=======
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" id="icon-close" class="icon-close">
+>>>>>>> user-principal
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>                    
         </div>
@@ -48,8 +59,62 @@ function mostrarProductosEnCarrito(datosArray) {
   ;
   $('#cart-cards').html(cartas);
   $('#cart-cards').append(divFinal);
+<<<<<<< HEAD
 
 }
+=======
+  EliminarDatoCarrito();
+}
+
+//OBTENER DATOS DEL LOCALSTORAGE A CARRITO
+function obtenerDatosDelCarrito() {
+  const datosString = localStorage.getItem('carrito');
+  if (datosString) {
+    return JSON.parse(datosString);
+  } else {
+    return [];
+  }
+}
+//GUARDAR DATOS DEL CARRITO AL LOCALSTORAGE
+function guardarDatosDelCarrito() {
+  const datosString = JSON.stringify();
+  localStorage.setItem('carrito', datosString);
+}
+
+// MOSTRAR CARRITO CON EVENTO CLICK
+const btnCart = document.querySelector('.icon-cart');
+const containerCartProducts = document.querySelector('.container-cart-products');
+btnCart.addEventListener('click', () => {
+  containerCartProducts.classList.toggle('hidden-cart');
+  mostrarProductosEnCarrito();
+});
+
+// RECUPERAR AL CARGAR PAGINA
+document.addEventListener('load', () => {
+  mostrarProductosEnCarrito();
+});
+
+//ELIMINAR PRODUCTO DEL CARRITO
+function EliminarDatoCarrito() {
+  const btnEliminar = document.querySelectorAll('.icon-close');
+  btnEliminar.forEach((element, i) => {
+    element.addEventListener('click', function() {
+      const datosArray = obtenerDatosDelCarrito();
+      datosArray.splice(0, 1);
+      const largo = btnEliminar.length;
+      if(largo===0){
+        localStorage.removeItem('carrito');
+      }else{
+        localStorage.setItem('carrito', JSON.stringify(datosArray))
+      }
+      //ELIMINAR ELEMENTO EN EL DOM
+      const fila = element.parentNode.parentNode;
+      fila.remove();
+    });
+  });
+}
+
+>>>>>>> user-principal
 //FUNCION PARA OBTENER TODOS LOS DATOS
 const loadAllProducts = async() => {
   //VERIFICACION
@@ -306,6 +371,7 @@ loadCupcakes();
 loadCinnamons();
 loadTortas();
 loadPie();
+<<<<<<< HEAD
 //FUNCION CARRITO COMPRA
 /*MOSTRAR CARRITO*/
 
@@ -314,3 +380,8 @@ const containerCartProducts = document.querySelector('.container-cart-products')
 btnCart.addEventListener('click', () => {
   containerCartProducts.classList.toggle('hidden-cart');
 })
+=======
+
+//FUNCION CARRITO COMPRA
+
+>>>>>>> user-principal

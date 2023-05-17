@@ -42,6 +42,8 @@ $(document).ready(function() {
                         console.error("Ha ocurrido un error al intentar agregar el nuevo producto: " + error);
                     }
                 });
+
+                window.location.href = "index.html";
             });
         };
     });

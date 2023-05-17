@@ -15,6 +15,10 @@ $("#login").click(function( ){
         
         if (verificarUsuario(ingreso_email, ingreso_password, productos)) {
             alert("correcto");
+<<<<<<< HEAD
+=======
+            window.location.href = "index.html";
+>>>>>>> user-principal
         }else{
             alert("malo");
         };   
