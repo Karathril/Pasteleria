@@ -32,17 +32,18 @@ body {
 
 }
 
-/*BTN INICIO SESION Y REGISTRO*/
-
-#btn-iniciarSesion{
-  position: absolute;
-  margin-left: 22%;
-  margin-top: 6px;
+#navbarNavDropdown{
+  margin-left: 20px;
 }
-#btn-registrarse{
-  position: absolute;;
-  margin-left: 16%;
-  margin-top: 6px;
+#contenedor-nav .list-sesion{
+  margin-left: 96px;
+}
+/*BTN INICIO SESION Y REGISTRO*/
+#btn-iniciarSesion{
+  margin: 10px;
+}
+#btn-btn-registrarse{
+  margin: 10px;
 }
 /*CARD*/
 
@@ -58,7 +59,7 @@ body {
 /*CARRITO COMPRA*/
 
 .nav-icon{
-  padding-left: 1rem;
+  margin-right: 64px;
 }
 .icon-cart{
   width: 30px; 
@@ -74,6 +75,7 @@ body {
 
 .container-icon{
   position: relative;
+  margin: 5px;
 }
 
 .contador-productos{
@@ -176,3 +178,4 @@ body {
 }
 
 
+/**/

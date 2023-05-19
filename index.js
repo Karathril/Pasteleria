@@ -1,7 +1,6 @@
 //VARIABLES
 let carrito = [];
 var id=0;
-
 //FUNCION AGREGAR LOCALSTORAGE
 const clickAgregar = async (event) => {
   const tarjeta = event.target;
@@ -21,12 +20,12 @@ const clickAgregar = async (event) => {
     console.log(error);
   }
 };
-
 //FUNCION PARA MOSTRAR PRODUCTOS ELEGIDOS EN CARRITO
 function mostrarProductosEnCarrito() {
   const datosArray = obtenerDatosDelCarrito();
   let cartas = '';
-  datosArray.forEach(element => {
+  let total = 0;
+  datosArray.forEach(element=> {
     let title = element.name;
     let precio = element.price;
     let image = element.image;
@@ -42,18 +41,31 @@ function mostrarProductosEnCarrito() {
           </svg>                    
         </div>
       </div>`;
+
+    total += parseFloat(precio);
   });
   let divFinal =`
     <div class="cart-total">
-      <h3>Total:</h3>
-      <span class="total-pagar"></span>
+      <h3>Total: $${total}</h3>
+      <button type="button" id="btn-pagar" class="btn btn-warning">Realizar Compra</button>
     </div>` 
   ;
+  
   $('#cart-cards').html(cartas);
   $('#cart-cards').append(divFinal);
   EliminarDatoCarrito();
-}
+  agregarCantCart();
 
+  const pagar = document.querySelector('#btn-pagar');
+  if(datosArray.length==0){
+    pagar.style.display = 'none';
+  }
+  
+  pagar.addEventListener('click', () => {
+    alert('¡Compra realizada!');
+    eliminarTodosLosElementos();
+  });
+}
 //OBTENER DATOS DEL LOCALSTORAGE A CARRITO
 function obtenerDatosDelCarrito() {
   const datosString = localStorage.getItem('carrito');
@@ -68,7 +80,6 @@ function guardarDatosDelCarrito() {
   const datosString = JSON.stringify();
   localStorage.setItem('carrito', datosString);
 }
-
 // MOSTRAR CARRITO CON EVENTO CLICK
 const btnCart = document.querySelector('.icon-cart');
 const containerCartProducts = document.querySelector('.container-cart-products');
@@ -77,9 +88,22 @@ btnCart.addEventListener('click', () => {
   mostrarProductosEnCarrito();
 });
 
+//FUNCION PARA AGREGAR CONTADOR DE PRODUCTO AL CARRITO
+function agregarCantCart(){
+    dato = document.querySelectorAll('.cart-product');
+    const cantidad = dato.length; 
+    localStorage.setItem('cantCart',cantidad);
+    $('.contador-productos').html(cantidad);
+}
+//RECUPERACION DE CONTADOR POR LOCALSTORAGE
+function recuperarCantCart(){
+  const cantidadStorage = localStorage.getItem('cantCart');
+  $('.contador-productos').html(cantidadStorage);
+}
 // RECUPERAR AL CARGAR PAGINA
-document.addEventListener('load', () => {
+window.addEventListener('load', () => {
   mostrarProductosEnCarrito();
+  recuperarCantCart();
 });
 
 //ELIMINAR PRODUCTO DEL CARRITO
@@ -98,10 +122,29 @@ function EliminarDatoCarrito() {
       //ELIMINAR ELEMENTO EN EL DOM
       const fila = element.parentNode.parentNode;
       fila.remove();
+      agregarCantCart();
+      mostrarProductosEnCarrito();
     });
   });
 }
+//ELIMINAR TODOS LOS PRODUCTOS POR REALIZAR PAGO
+function eliminarTodosLosElementos() {
+  const btnEliminar = document.querySelectorAll('.icon-close');
+  btnEliminar.forEach((element, i) => {
+    const datosArray = obtenerDatosDelCarrito();
+    datosArray.splice(0, datosArray.length); // Eliminar todos los elementos del array
 
+    // Actualizar el almacenamiento local
+    localStorage.removeItem('carrito');
+
+    // ELIMINAR ELEMENTO EN EL DOM
+    const fila = element.parentNode.parentNode;
+    fila.remove();
+  });
+
+  agregarCantCart();
+  mostrarProductosEnCarrito();
+}
 //FUNCION PARA OBTENER TODOS LOS DATOS
 const loadAllProducts = async() => {
   //VERIFICACION
@@ -359,5 +402,4 @@ loadCinnamons();
 loadTortas();
 loadPie();
 
-//FUNCION CARRITO COMPRA
 
