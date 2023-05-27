@@ -167,27 +167,5 @@
       "image": "Images/Ima_Nuestro_Productos/pie/3-pie-de-maracuyá.jpg"
     }
   ],
-  "users": [
-    {
-      "name": "admin",
-      "email": "admin@gmail.com",
-      "password": "a1@",
-      "categoryId": 5,
-      "id": 1
-    },
-    {
-      "name": "sdfsdf",
-      "email": "sdjfhs@gmail.com",
-      "password": "a1@",
-      "categoryId": 5,
-      "id": 2
-    },
-    {
-      "name": "Luis",
-      "email": "alo@gmail.com",
-      "password": "aa@1",
-      "categoryId": 5,
-      "id": 3
-    }
-  ]
+  "users": []
 }

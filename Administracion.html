@@ -82,13 +82,13 @@
   <div class="card-body">
     <div class="row">
       <div class="col-4">
-        <input class=" form-control" placeholder="Nombre" style="color: #e5466b ;">
+        <input class=" form-control" placeholder="Nombre" id="agregar-producto-nombre" style="color: #e5466b ;">
       </div>
       <div class="col-4">
-        <input class=" form-control" placeholder="Precio" style="color: #e5466b;">
+        <input class=" form-control" placeholder="Precio" id="agregar-producto-precio" style="color: #e5466b;">
       </div>
       <div class="col-4">
-        <select class="form-select" style="color: #e5466b">
+        <select class="form-select" id="agregar-producto-opcion" style="color: #e5466b">
           <option value="1">Tortas</option>
           <option value="2">Cinnamon rolls</option>
           <option value="3">Cupcakes</option>
@@ -98,19 +98,14 @@
   </div>
   <div class="row justify-content-center">
     <div class="col-5 mt-3">
-      <textarea class="form-control" style="color: #e5466b" rows="3" placeholder="Descripcion"></textarea>
-    </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-6 mt-3">
-      <input class="form-control" type="file" style="color: #e5466b">
+      <textarea class="form-control" style="color: #e5466b" rows="3" id="agregar-producto-descripcion" placeholder="Descripcion"></textarea>
     </div>
   </div>
   </div>
   <div class="card-footer">
     <div class="row text-center">
       <div class="col-12">
-        <button type="button" class="btn btn-danger btn-lg">Agregar producto</button>
+        <button type="button" id="agregarProducto" class="btn btn-danger btn-lg">Agregar producto</button>
       </div>
     </div>
   </div>
