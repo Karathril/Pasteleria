@@ -1,41 +1,3 @@
-//VARIABLES
-let carrito = [];
-var id=0;
-var sesionIniciada = localStorage.getItem('sesionIniciada');
-var verificacion = localStorage.getItem('verificacion');
-var botonCerrarSesion = document.getElementById("btn-cerrarSesion");
-var botoniniciarSesion = document.getElementById("btn-iniciarSesion");
-var botonregistrarse = document.getElementById("btn-registrarse");
-var botonAdministracion = document.getElementById("btn-administracion");
-var label = document.getElementById("correo-usuario");
-label.style.display = "none";
-botonAdministracion.style.display = "none";
-
-//IF PARA BOTÓN DE CERRAR SESIÓN
-if (verificacion === 'si'){
-  botoniniciarSesion.style.display = "none";
-  botonregistrarse.style.display = "none";
-  botonCerrarSesion.style.display = "block";
-  label.style.display = "block";
-  label.textContent = sesionIniciada;
-    if(sesionIniciada === 'admin@gmail.com'){
-      alert('Estas como administrador');
-      botonAdministracion.style.display = "block";
-    };
-}else if (verificacion === 'no'){
-  botoniniciarSesion.style.display = "block";
-  botonregistrarse.style.display = "block";
-  botonCerrarSesion.style.display = "none";
-  label.style.display = "none";
-  label.textContent = '';
-};
-
-botonCerrarSesion.onclick = handleClick;
-
-function handleClick() {
-  localStorage.setItem('verificacion', 'no');
-  window.location.href = "index.html";
-}
 
 //FUNCION AGREGAR LOCALSTORAGE
 const clickAgregar = async (event) => {
@@ -86,7 +48,6 @@ function mostrarProductosEnCarrito() {
           </svg>                    
         </div>
       </div>`;
-
     total += parseFloat(precio);
   });
   let divFinal =`
@@ -193,7 +154,6 @@ function eliminarTodosLosElementos() {
     const fila = element.parentNode.parentNode;
     fila.remove();
   });
-
   agregarCantCart();
   mostrarProductosEnCarrito();
 }
@@ -286,15 +246,12 @@ const loadCinnamons = async() => {
           </div>`
         ;
       });
-
       $('#info-cards-cinnamon').html(cartas);
-
       const btnAgregar = document.querySelectorAll('#info-cards-cinnamon #btn-agregar');
       btnAgregar.forEach(product => {
         product.removeEventListener('click', clickAgregar);
         product.addEventListener('click', clickAgregar);
       });
-
     }else if (respuesta.status===401) {
       console.log('La url API Invalida!');
     }else if (respuesta.status===404){

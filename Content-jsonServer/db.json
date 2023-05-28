@@ -179,6 +179,7 @@
       "image": "Images/Ima_Nuestro_Productos/pie/3-pie-de-maracuyá.jpg"
     }
   ],
+<<<<<<< HEAD
   "users": [
     {
       "name": "admin",
@@ -395,5 +396,8 @@
       "id": 1
     }
   ]
+>>>>>>> user-principal
+=======
+  "users": []
 >>>>>>> user-principal
 }

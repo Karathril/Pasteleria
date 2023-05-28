@@ -1,24 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
-    <!--Metadato-->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Proyecto Pasteleria">
-    <!--Reset-->
-    <link rel="stylesheet" href="Styles/normalize.css">
-    <!--Descripcion-->
-    <title>Tortas</title>
-    <!--Favicon 48x48px-->
-    <link rel="shortcut icon" href="#" type="image/x-icon">
-    <!--Bootsrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <!--CSS-->
-    <link rel="stylesheet" href="Styles/style_Nuestros_Productos.css">
-    <link rel="stylesheet" href="Styles/style_index.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="Styles/style_index.css">
+  <link rel="stylesheet" href="Styles/Estilo_Nosotros.css">
+  <title>Nosotros</title>
 </head>
-<body>
+
+<body style="background: linear-gradient(to right, #FFD6F3, #FFE6F7);">
   <!--Barra de navegacion-->
   <nav class="navbar navbar-expand-lg bg-body-tertiary" style="min-height: 5rem; font-size: 20px; background-color: #ff9eb5 !important;">
     <div class="container-fluid" id="contenedor-nav">
@@ -31,16 +22,7 @@
       </button>
       <div class="collapse navbar-collapse d-flex justify-content-center align-items-center" id="navbarNavDropdown">
         <ul class="navbar-nav">
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Nuestros productos
-=======
-          <li>
-=======
           <li class ="nav-item">
->>>>>>> user-principal
             <a class="nav-link" id="btn-all" aria-current="page" href="Index.html">Inicio</a>
           </li>
           <li class="nav-item">
@@ -49,7 +31,6 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Categorias
->>>>>>> user-principal
             </a>
             <ul class="dropdown-menu ">
               <li><a class="dropdown-item d-flex flex-column" id="btn-cinnamon1" href="Tortas.html"> <img src="Images/Ima_index/cakee.jpg" alt="Bootstrap" width="100"
@@ -63,12 +44,6 @@
             </ul>
           </li>
           <li class="nav-item">
-<<<<<<< HEAD
-            <a class="nav-link active" id="btn-all" aria-current="page" href="Promociones.html">Promociones</a>
-          </li>
-          <li class="nav-item">
-=======
->>>>>>> user-principal
             <a class="nav-link" href="Contacto.html">Contacto</a>
           </li>
           <li class="nav-item">
@@ -87,38 +62,73 @@
               </div>
             </div>
           </li>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-          <li>
-            <a id="btn-iniciarSesion" class="btn btn-danger" href="Login.html">Iniciar sesion</a>
-          </li>
-          <li>
-            <a id="btn-registrarse" class="btn btn-danger" href="Registro.html">Registrarse</a>
-=======
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <div class="list-sesion">
               <a id="btn-iniciarSesion" class="btn btn-danger" href="Ingreso.html">Iniciar sesión</a>
               <a id="btn-registrarse" class="btn btn-danger" href="Registro.html">Registrarse</a>
+              <label id="correo-usuario"></label>
             </div>
->>>>>>> user-principal
           </li>
->>>>>>> user-principal
         </ul>
       </div>
     </div>
   </nav>
-  <!--Fondo-->
-  <h1 class="titulo-tienda">Tortas</h1>
-  <div class="container text-center">
-        <div class="row card-deck" id="info-cards-tortas">
-        </div>
-      </div>
+  <!--descripcion-->
+  <div class="container2">
+    <div class="container1">
+        <h1 class="subTitle" style="color: #e6355e">Nosotros</h1>
+    </div>
+    <div class="image-container">
+        <div class="image-overlay"></div>
+        <img src="Images/paranosotros.jpg" alt="Your Image">
     </div>
   </div>
-  <!--Footer--> 
+  <div style="text-align: center;">
+    <h3 class="custom-font" style="color: #e6355e">Una Dulce</h3>
+  </div>
+    </div>
+    <div style="text-align: center;">
+  <h1 style="color: #e6355e">Historia</h1>
+</div>
+  <div class="d-flex justify-content-center">
+<p class="custom text-center" style="color: #e6355e">Somos una empresa de gran tradición familiar que por mucho tiempo se ha preocupado
+    por ofrecer los más ricos y variados cupcakes, tortas, tartaletas y cinamons a una clientela
+    que nos ha dado su preferencia.
+    Nos hemos planteado como objetivo que cada pedido sea toda una dulce y memorable experiencia,
+    donde nuestro estilo de atención, grato y amable de parte de nuestro equipo se conjueguen con
+    nuestras deliciosas preparaciones y todo dentro de un ambiente cálido y acogedor.</p>
+  </div>
+  <!--carrusel-->
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="Images/manzana.webp" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="Images/canela.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- footer -->
   <footer class="bg-pink py-5 mt-3">
     <div class="container">
       <div class="row">
@@ -155,21 +165,17 @@
         <div class="col-md-6">
           <p class="text-white mb-0">Copyright &copy; 2023</p>
         </div>
-        <div class="col-md-6">
-          <ul class="list-inline text-md-end mb-0">
-            <li class="list-inline-item"><a href="#" class="text-white">Politicas de privacidad</a></li>
-            <li class="list-inline-item"><a href="#" class="text-white">Terminos de uso</a></li>
-          </ul>
-        </div>
       </div>
     </div>
   </footer>
-  <!--Jquery-->
-  <script src="index.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <!--Scrip Bootstrap-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+        integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+        integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+        crossorigin="anonymous"></script>
+
 </body>
-</html>
 
 </html>
