@@ -1,11 +1,3 @@
-/*Sesion para agregar un producto*/ 
-
-
-
-/* 
-    Sesion PARA LISTAR Y PODER MODIFICAR Y ELIMINAR
- */
-
 //FUNCION PARA OBTENER TODOS LOS DATOS
 const loadAll= async() => {
   //VERIFICACION
