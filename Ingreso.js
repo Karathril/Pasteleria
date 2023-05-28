@@ -14,19 +14,23 @@ $("#login").click(function() {
     }
     
     if (verificarUsuario(ingreso_email, ingreso_password, data)) {
-      alert("correcto");
-      localStorage.setItem('sesionIniciada', ingreso_email);
-      localStorage.setItem('verificacion', 'si');
-      window.location.href = "index.html";
+      localStorage.setItem('correo', ingreso_email);
+      if (ingreso_email === 'admin@gmail.com' && ingreso_password === 'a@1a@1'){
+        alert("Entro como Administrador");
+        window.location.href = "Administracion.html";
+      }else{
+        alert("Entro como "+ingreso_email);
+        window.location.href = "index.html";
+      };
     } else {
-      alert("malo");
-      localStorage.setItem('verificacion', 'no');
+      alert("Usuario incorrecto");
+      localStorage.removeItem('correo');
 
     }
   });
 });
 
 $("#regresar").click(function() {
-  localStorage.setItem('verificacion', 'no');
+  localStorage.removeItem('correo');
   window.location.href = "index.html";
 });

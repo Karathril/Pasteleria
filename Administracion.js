@@ -141,15 +141,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }else if (/\s/g.test(v_precio)==true || /[a-zA-Z]/.test(v_precio) || v_precio=="" || /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(v_precio)){ 
         alert("precio invalido");
       }else{
-        if(v_opcion==1){
-          alert("opcion tortas");
-        }else if (v_opcion==2) {
-          alert("opcion cinnamon rolls");
-        }else if (v_opcion==3) {
-          alert("opcion cupcakes");
-        }else if (v_opcion==4) {;
-          alert("opcion pies");
-        };
         //DAR FORMATO JSON
         var nuevoProducto = {
           name: v_nombre,

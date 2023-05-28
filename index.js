@@ -412,5 +412,45 @@ loadCupcakes();
 loadCinnamons();
 loadTortas();
 loadPie();
+//OBTENER DIV DE LOS BOTONES
+var botoncerrarSesion = document.getElementById('btn-inicio');
+var botones1 = document.getElementById('botones1');
+var botones2 = document.getElementById('botones2');
+var labelCorreo = document.getElementById('labelCorreo');
+
+//FUNCION PARA EL CORREO CON LOCALSTORAGE
+function obtenerCorreoLocalStorage() {
+  return localStorage.getItem('correo');
+};
+var correo = obtenerCorreoLocalStorage();
+//FUNCION PARA CERRAR SESION
+botoncerrarSesion.addEventListener('click', function() {
+  localStorage.removeItem('correo');
+});
+//FUNCION PARA CAMBIAR LOS BOTONES POR USUARIO
+sesionUsuario(botones1, botones2, correo);
+function sesionUsuario(botones1, botones2, correo) {
+  if (correo !== null) {
+    botones1.style.display = "none";
+    botones2.style.display = "block";
+    cambiarContenidoLabel(correo);
+    function cambiarContenidoLabel(nuevoContenido) {
+      if (labelCorreo) {
+        labelCorreo.textContent = nuevoContenido;
+      }
+    }
+  }else{
+    botones1.style.display = "block";
+    botones2.style.display = "none";
+    botoncerrarAdminis.style.display = "none";
+    cambiarContenidoLabel("");
+    function cambiarContenidoLabel(nuevoContenido) {
+      if (labelCorreo) {
+        labelCorreo.textContent = nuevoContenido;
+      }
+    }
+  }
+};
+
 
 
