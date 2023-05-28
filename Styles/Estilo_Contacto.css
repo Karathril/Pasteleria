@@ -125,9 +125,3 @@ section {
     border-color: #dc3545;
     color: #fff;
     }
-
-.btn:hover {
-    background-color: #f25d6c;
-    border-color: #f25d6c;
-    color: #fff;
-}
