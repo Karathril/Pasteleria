@@ -1,8 +1,4 @@
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> user-principal
   "categories": [
     {
       "id": 1,
@@ -23,14 +19,11 @@
       "id": 4,
       "name": "Pie",
       "description": "Pies frescos y innovadores"
-<<<<<<< HEAD
     },
     {
       "id": 5,
       "name": "user",
       "description": "Datos de usuarios"
-=======
->>>>>>> user-principal
     }
   ],
   "products": [
@@ -179,25 +172,10 @@
       "image": "Images/Ima_Nuestro_Productos/pie/3-pie-de-maracuyá.jpg"
     }
   ],
-<<<<<<< HEAD
   "users": [
     {
       "name": "admin",
       "email": "admin@gmail.com",
-<<<<<<< HEAD
-      "password": "a1@",
-      "categoryId": 5,
-      "id": 1
-    },
-    {
-      "name": "sdfsdf",
-      "email": "sdjfhs@gmail.com",
-      "password": "a1@",
-      "categoryId": 5,
-      "id": 2
-    }
-  ]
-=======
     "categories":[ 
         {
             "id":1,
@@ -389,15 +367,7 @@
         "id": 2
       }
     ]
->>>>>>> user-principal
-=======
-      "password": "a@1a@1",
-      "categoryId": 5,
-      "id": 1
+      
     }
   ]
->>>>>>> user-principal
-=======
-  "users": []
->>>>>>> user-principal
 }
