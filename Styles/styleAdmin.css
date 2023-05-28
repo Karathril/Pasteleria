@@ -17,6 +17,12 @@ textarea {
   object-fit: cover;
 }
 
+.card-header{
+  background-color: #f7707e;
+}
+.card-header h4 {
+  color: #fff;
+}
 
 .bg-pink {
   background-color: #ff9eb5;
@@ -81,3 +87,4 @@ tr:last-child td {
 ::placeholder {
   color: #ff9eb5 !important;
 }
+

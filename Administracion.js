@@ -1,3 +1,11 @@
+/*Sesion para agregar un producto*/ 
+
+
+
+/* 
+    Sesion PARA LISTAR Y PODER MODIFICAR Y ELIMINAR
+ */
+
 //FUNCION PARA OBTENER TODOS LOS DATOS
 const loadAll= async() => {
   //VERIFICACION
@@ -17,10 +25,10 @@ const loadAll= async() => {
         const id = producto.id;
         cartas +=  `
           <tr data-product-id="${id}"> 
-            <td><input class="form-control" type="text" id="nombre${id}" placeholder="${title}" style="color: #e5466b"></td>
-            <td><input class="form-control" type="number" id="precio${id}" placeholder="${precio}" style="color: #e5466b"></td>
+            <td><input id="input-nombre" class="form-control" type="text" placeholder="${title}" style="color: #e5466b"></td>
+            <td><input id="input-precio" class="form-control" type="number" placeholder="${precio}" style="color: #e5466b"></td>
             <td>
-              <select class="form-select" id="opcion-actualizar" style="color: #e5466b">
+              <select id="input-categoria" class="form-select" style="color: #e5466b">
                 <option value="1" ${categoria == '1' ? 'selected' : ''}>Tortas</option>
                 <option value="2" ${categoria == '2' ? 'selected' : ''}>Cinnamon rolls</option>
                 <option value="3" ${categoria == '3' ? 'selected' : ''}>Cupcakes</option>
@@ -28,66 +36,12 @@ const loadAll= async() => {
               </select>
             </td>
             <td>
-              <textarea id="descripcion${id}" class="form-control" style="color: #e5466b" rows="3" placeholder="${description}"></textarea>
+              <textarea id="input-descripcion" class="form-control" style="color: #e5466b" rows="3" placeholder="${description}"></textarea>
             </td>
-            <td><button class="btn btn-danger deleteProduct">Eliminar</button></td>
-            <td><button class="btn btn-danger actualizar-producto" data-product-id="${id}">Actualizar</button></td>
-        </tr>`;
+            <td class="text-center"><button class="btn btn-danger updateProduct">Actualizar</button></td>
+            <td class="text-center"><button class="btn btn-danger deleteProduct">Eliminar</button></td>
+          </tr>`;
         });
-
-        $(document).on("click", ".actualizar-producto", function() {
-            var productId = $(this).data("product-id");
-            actualizarProducto(productId);
-        });
-
-        function actualizarProducto(productId) {
-            var v_nombre =$("#nombre"+productId).val()
-            var v_precio =$("#precio"+productId).val()
-            var Elemento = document.getElementById("opcion-actualizar");
-            var v_opcion = Elemento.value;
-            var ElementoText = document.getElementById("descripcion"+productId);
-            var v_descripcion = ElementoText.value;
-            
-            if (/\d/.test(v_nombre)==true || v_nombre=="" || /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(v_nombre)){ 
-              alert("Nombre invalido");
-            }else if (/\s/g.test(v_precio)==true || /[a-zA-Z]/.test(v_precio) || v_precio=="" || /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(v_precio)){ 
-              alert("precio invalido");
-            }else{
-              if(v_opcion==1){
-                alert("opcion tortas");
-              }else if (v_opcion==2) {
-                alert("opcion cinnamon rolls");
-              }else if (v_opcion==3) {
-                alert("opcion cupcakes");
-              }else if (v_opcion==4) {;
-                alert("opcion pies");
-              };
-        
-              var nuevoProducto = {
-                name: v_nombre,
-                description: v_descripcion,
-                price: v_precio,
-                categoryId: v_opcion
-                
-            };
-        
-              $.ajax({
-                type: "PUT",
-                url: "http://localhost:3000/products/"+productId,
-                data: JSON.stringify(nuevoProducto),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (data) {
-                    console.log("El nuevo producto se ha agregado con éxito.");
-                    window.location.href = "Administracion.html";
-                },
-                error: function (xhr, status, error) {
-                    console.error("Ha ocurrido un error al intentar agregar el nuevo producto: " + error);
-                }
-              });
-            };
-        };
-        
   
         $('#info-table').html(cartas);
         //ELIMINAR PRODUCTO DE LA API
@@ -104,7 +58,6 @@ const loadAll= async() => {
               if (response.ok) {
                 row.remove(); // Eliminar la fila si la eliminación en la API es exitosa
                 console.log("Eliminación exitosa");
-                window.location.href = "Administracion.html";
               } else {
                 throw new Error("Error al eliminar los datos");
               }
@@ -112,6 +65,61 @@ const loadAll= async() => {
             .catch(error => {
               console.log("Error al eliminar los datos:", error);
             });
+          });
+        });
+
+        //ACTUALIZAR PRODUCTO
+        const btnUpdate = document.querySelectorAll('.updateProduct');
+        btnUpdate.forEach(btn => {
+          btn.addEventListener('click', async () => {
+            const row = btn.closest('tr'); // Obtener la fila actual
+            const productId = row.dataset.productId; // Obtener el ID del producto
+            
+            const v_nombre = row.querySelector('#input-nombre').value;
+            const v_precio = row.querySelector('#input-precio').value;
+            const v_categoria = row.querySelector('#input-categoria').value;
+            const v_descripcion = row.querySelector('#input-descripcion').value;
+            if (/\d/.test(v_nombre)==true || v_nombre=="" || /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(v_nombre)){ 
+              alert("Nombre invalido");
+            }else if (/\s/g.test(v_precio)==true || /[a-zA-Z]/.test(v_precio) || v_precio=="" || /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(v_precio)){ 
+              alert("precio invalido");
+            } else if (v_descripcion==""){
+              alert("descripcion invalida");
+            }else{
+              const respuesta = await fetch("http://localhost:3000/products/" + productId);
+              const datos = await respuesta.json();
+              const v_image = datos.image;
+
+              var nuevoProducto = {
+                id: productId,
+                name: v_nombre,
+                description: v_descripcion,
+                price: v_precio,
+                categoryId: v_categoria,
+                image: v_image
+              }
+              
+              var result = confirm("¿Estás seguro de actualizar el producto?");
+              //SE CONFIRMA LA ACTUALIZACION DE DATOS
+              if (result) {
+                const updateResponse = await fetch("http://localhost:3000/products/" + productId, {
+                  method: 'PUT',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(nuevoProducto)
+                });
+
+                if (!updateResponse.ok) {
+                  throw new Error("Error al actualizar los datos");
+                }
+                alert("Actualización exitosa");
+                //CANCELACION DE ACTUALIZACION
+              } else{
+                alert("Se ha cancelado la Actualización");
+              }
+              
+            }
           });
         });
 
@@ -125,65 +133,66 @@ const loadAll= async() => {
   }catch(error){
     console.log(error);
   }
-
-  $("#agregarProducto").click(function(){
-    var v_nombre =$("#agregar-producto-nombre").val()
-    var v_precio =$("#agregar-producto-precio").val()
-    var Elemento = document.getElementById("agregar-producto-opcion");
-    var v_opcion = Elemento.value;
-    var ElementoText = document.getElementById("agregar-producto-descripcion");
-    var v_descripcion = ElementoText.value;
-    
-    
-  
-    if (/\d/.test(v_nombre)==true || v_nombre=="" || /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(v_nombre)){ 
-      alert("Nombre invalido");
-    }else if (/\s/g.test(v_precio)==true || /[a-zA-Z]/.test(v_precio) || v_precio=="" || /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(v_precio)){ 
-      alert("precio invalido");
-    }else{
-      if(v_opcion==1){
-        alert("opcion tortas");
-      }else if (v_opcion==2) {
-        alert("opcion cinnamon rolls");
-      }else if (v_opcion==3) {
-        alert("opcion cupcakes");
-      }else if (v_opcion==4) {;
-        alert("opcion pies");
-      };
-
-      var nuevoProducto = {
-        name: v_nombre,
-        description: v_descripcion,
-        price: v_precio,
-        categoryId: v_opcion,
-        image: "Images/Ima_Nuestro_Productos/cakes/2-torta-red-velvet.jpg"
-        
-    };
-
-      $.ajax({
-        type: "POST",
-        url: "http://localhost:3000/products",
-        data: JSON.stringify(nuevoProducto),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (data) {
-            console.log("El nuevo producto se ha agregado con éxito.");
-            window.location.href = "Administracion.html";
-        },
-        error: function (xhr, status, error) {
-            console.error("Ha ocurrido un error al intentar agregar el nuevo producto: " + error);
-        }
-      });
-    };
-
-  
-  
-  
-  
-  
-  });
-
 }
+
+//AGREGAR PRODUCTO A API 
+document.addEventListener('DOMContentLoaded', function() {
+  const addProduct = document.getElementById('btn-agregarProducto');
+  addProduct.addEventListener('click', () => {
+    var result = confirm("¿Estás seguro de que quieres agregar el producto?");
+    if (result) {
+      var v_nombre =$("#agregar-producto-nombre").val()
+      var v_precio =$("#agregar-producto-precio").val()
+      var Elemento = document.getElementById("agregar-producto-opcion");
+      var v_opcion = Elemento.value;
+      var ElementoText = document.getElementById("agregar-producto-descripcion");
+      var v_descripcion = ElementoText.value;
+      //VERIFICACION DE DATOS INGRESADOS
+      if (/\d/.test(v_nombre)==true || v_nombre=="" || /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(v_nombre)){ 
+        alert("Nombre invalido");
+      }else if (/\s/g.test(v_precio)==true || /[a-zA-Z]/.test(v_precio) || v_precio=="" || /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(v_precio)){ 
+        alert("precio invalido");
+      }else{
+        if(v_opcion==1){
+          alert("opcion tortas");
+        }else if (v_opcion==2) {
+          alert("opcion cinnamon rolls");
+        }else if (v_opcion==3) {
+          alert("opcion cupcakes");
+        }else if (v_opcion==4) {;
+          alert("opcion pies");
+        };
+        //DAR FORMATO JSON
+        var nuevoProducto = {
+          name: v_nombre,
+          description: v_descripcion,
+          price: v_precio,
+          categoryId: v_opcion,
+          image: "Images/Ima_Nuestro_Productos/imagen-Pronto.jpg"
+          
+      };
+        //DATOS ENVIADOS PARA AGREGAR A JSON
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:3000/products",
+          data: JSON.stringify(nuevoProducto),
+          contentType: "application/json; charset=utf-8",
+          dataType: "json",
+          success: function (data) {
+              console.log("El nuevo producto se ha agregado con éxito.");
+              window.location.href = "Administracion.html";
+          },
+          error: function (xhr, status, error) {
+              console.error("Ha ocurrido un error al intentar agregar el nuevo producto: " + error);
+          }
+        });
+      };
+    } else {
+      // Código a ejecutar si el usuario hace clic en "Cancelar"
+      console.log("El usuario ha cancelado.");
+    }
+  });
+});
+
 //FUNCION PARA POBLAR TABLA DE TODOS LOS PRODUCTOSS
 loadAll();
-
