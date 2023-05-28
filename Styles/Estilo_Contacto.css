@@ -4,6 +4,7 @@
     /* font-family: 'Fuente'; */
 }
 
+
 @font-face {
     font-family: 'Fuente';
     src: url(../Font/LifeCraft_Font.ttf);
@@ -115,4 +116,18 @@ section {
 
 ::placeholder{
     color: white;
+}
+
+/*BOTONES*/
+
+.btn{
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+    }
+
+.btn:hover {
+    background-color: #f25d6c;
+    border-color: #f25d6c;
+    color: #fff;
 }

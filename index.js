@@ -1,11 +1,46 @@
 //VARIABLES
 let carrito = [];
 var id=0;
+var sesionIniciada = localStorage.getItem('sesionIniciada');
+var verificacion = localStorage.getItem('verificacion');
+var botonCerrarSesion = document.getElementById("btn-cerrarSesion");
+var botoniniciarSesion = document.getElementById("btn-iniciarSesion");
+var botonregistrarse = document.getElementById("btn-registrarse");
+var botonAdministracion = document.getElementById("btn-administracion");
+var label = document.getElementById("correo-usuario");
+label.style.display = "none";
+botonAdministracion.style.display = "none";
+
+//IF PARA BOTÓN DE CERRAR SESIÓN
+if (verificacion === 'si'){
+  botoniniciarSesion.style.display = "none";
+  botonregistrarse.style.display = "none";
+  botonCerrarSesion.style.display = "block";
+  label.style.display = "block";
+  label.textContent = sesionIniciada;
+    if(sesionIniciada === 'admin@gmail.com'){
+      alert('Estas como administrador');
+      botonAdministracion.style.display = "block";
+    };
+}else if (verificacion === 'no'){
+  botoniniciarSesion.style.display = "block";
+  botonregistrarse.style.display = "block";
+  botonCerrarSesion.style.display = "none";
+  label.style.display = "none";
+  label.textContent = '';
+};
+
+botonCerrarSesion.onclick = handleClick;
+
+function handleClick() {
+  localStorage.setItem('verificacion', 'no');
+  window.location.href = "index.html";
+}
 
 //FUNCION AGREGAR LOCALSTORAGE
 const clickAgregar = async (event) => {
   const tarjeta = event.target;
-  const item = tarjeta.closest('.card-body');
+  const item = tarjeta.closest('.card-footer');
   const id_producto = item.querySelector('.id-product').textContent;
   try {
     const respuesta1 = await fetch('http://localhost:3000/products/'.concat(id_producto));
@@ -30,7 +65,8 @@ function mostrarProductosEnCarrito() {
   const datosArray = obtenerDatosDelCarrito();
 >>>>>>> user-principal
   let cartas = '';
-  datosArray.forEach(element => {
+  let total = 0;
+  datosArray.forEach(element=> {
     let title = element.name;
     let precio = element.price;
     let image = element.image;
@@ -50,13 +86,16 @@ function mostrarProductosEnCarrito() {
           </svg>                    
         </div>
       </div>`;
+
+    total += parseFloat(precio);
   });
   let divFinal =`
     <div class="cart-total">
-      <h3>Total:</h3>
-      <span class="total-pagar"></span>
+      <h3>Total: $${total}</h3>
+      <button type="button" id="btn-pagar" class="btn btn-warning">Realizar Compra</button>
     </div>` 
   ;
+  
   $('#cart-cards').html(cartas);
   $('#cart-cards').append(divFinal);
 <<<<<<< HEAD
@@ -64,8 +103,18 @@ function mostrarProductosEnCarrito() {
 }
 =======
   EliminarDatoCarrito();
-}
+  agregarCantCart();
 
+  const pagar = document.querySelector('#btn-pagar');
+  if(datosArray.length==0){
+    pagar.style.display = 'none';
+  }
+  
+  pagar.addEventListener('click', () => {
+    alert('¡Compra realizada!');
+    eliminarTodosLosElementos();
+  });
+}
 //OBTENER DATOS DEL LOCALSTORAGE A CARRITO
 function obtenerDatosDelCarrito() {
   const datosString = localStorage.getItem('carrito');
@@ -80,7 +129,6 @@ function guardarDatosDelCarrito() {
   const datosString = JSON.stringify();
   localStorage.setItem('carrito', datosString);
 }
-
 // MOSTRAR CARRITO CON EVENTO CLICK
 const btnCart = document.querySelector('.icon-cart');
 const containerCartProducts = document.querySelector('.container-cart-products');
@@ -89,9 +137,22 @@ btnCart.addEventListener('click', () => {
   mostrarProductosEnCarrito();
 });
 
+//FUNCION PARA AGREGAR CONTADOR DE PRODUCTO AL CARRITO
+function agregarCantCart(){
+    dato = document.querySelectorAll('.cart-product');
+    const cantidad = dato.length; 
+    localStorage.setItem('cantCart',cantidad);
+    $('.contador-productos').html(cantidad);
+}
+//RECUPERACION DE CONTADOR POR LOCALSTORAGE
+function recuperarCantCart(){
+  const cantidadStorage = localStorage.getItem('cantCart');
+  $('.contador-productos').html(cantidadStorage);
+}
 // RECUPERAR AL CARGAR PAGINA
-document.addEventListener('load', () => {
+window.addEventListener('load', () => {
   mostrarProductosEnCarrito();
+  recuperarCantCart();
 });
 
 //ELIMINAR PRODUCTO DEL CARRITO
@@ -110,10 +171,32 @@ function EliminarDatoCarrito() {
       //ELIMINAR ELEMENTO EN EL DOM
       const fila = element.parentNode.parentNode;
       fila.remove();
+      agregarCantCart();
+      mostrarProductosEnCarrito();
     });
   });
 }
+//ELIMINAR TODOS LOS PRODUCTOS POR REALIZAR PAGO
+function eliminarTodosLosElementos() {
+  const btnEliminar = document.querySelectorAll('.icon-close');
+  btnEliminar.forEach((element, i) => {
+    const datosArray = obtenerDatosDelCarrito();
+    datosArray.splice(0, datosArray.length); // Eliminar todos los elementos del array
 
+<<<<<<< HEAD
+>>>>>>> user-principal
+=======
+    // Actualizar el almacenamiento local
+    localStorage.removeItem('carrito');
+
+    // ELIMINAR ELEMENTO EN EL DOM
+    const fila = element.parentNode.parentNode;
+    fila.remove();
+  });
+
+  agregarCantCart();
+  mostrarProductosEnCarrito();
+}
 >>>>>>> user-principal
 //FUNCION PARA OBTENER TODOS LOS DATOS
 const loadAllProducts = async() => {
@@ -131,18 +214,22 @@ const loadAllProducts = async() => {
         const title = producto.name;
         const description = producto.description;
         const id = producto.id;
+        const precio = (producto.price).toLocaleString('es-CL');
         cartas +=  `
-          <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
-              <div class="card">
-                  <img src="${image}" id="card-img" alt="...">
-                  <div class="card-body">
-                      <h5 class="card-title">${title}</h5>
-                      <p class="card-text">${description}</p>
-                      <a href="#" id="btn-agregar" class="btn btn-success btn-agregar">Agregar al carrito</a>
-                      <div class="id-product" style="display:none;">${id}</div>
-                  </div>
+        <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
+          <div class="card">
+            <img src="${image}" id="card-img" alt="...">
+              <div class="card-body">
+                  <h4 class="card-title">${title}</h4><br>
+                  <p class="card-text">${description}</p>
+                  <h5 class="card-title">$${precio}</h5>
               </div>
-          </div>`  
+              <div class="card-footer">
+                  <a href="#" id="btn-agregar" class="btn btn-success btn-agregar">Agregar al carrito</a>
+                  <div class="id-product" style="display:none;">${id}</div>
+              </div>  
+          </div>
+        </div>`
         ;
       });
 
@@ -174,7 +261,6 @@ const loadCinnamons = async() => {
     if(respuesta.status===200){
       const datos = await respuesta.json();
       //FOREACH PARA RECORRER EL ARRAY DEL API
-      const cards = document.querySelectorAll('.card');
       let cartas = '';
       datos.forEach((producto, i) => {
           const image = producto.image;
@@ -182,20 +268,23 @@ const loadCinnamons = async() => {
           const title = producto.name;
           const description = producto.description;
           const id = producto.id;
+          const precio = (producto.price).toLocaleString('es-CL');
           cartas +=  `
-            <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
-                <div class="card">
-                    <img src="${image}" id="card-img" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">${title}</h5>
-                        <p class="card-text">${description}</p>
-                        <a href="#" id="btn-agregar" class="btn btn-success">Agregar al carrito</a>
-                        <div class="id-product" style="display:none;">${id}</div>
-                    </div>
+          <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
+            <div class="card">
+              <img src="${image}" id="card-img" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title">${title}</h4><br>
+                    <p class="card-text">${description}</p>
+                    <h5 class="card-title">$${precio}</h5>
                 </div>
-            </div>`  
-          ;
-          
+                <div class="card-footer">
+                    <a href="#" id="btn-agregar" class="btn btn-success btn-agregar">Agregar al carrito</a>
+                    <div class="id-product" style="display:none;">${id}</div>
+                </div>  
+            </div>
+          </div>`
+        ;
       });
 
       $('#info-cards-cinnamon').html(cartas);
@@ -226,7 +315,6 @@ const loadTortas = async() => {
     if(respuesta.status===200){
       const datos = await respuesta.json();
       //FOREACH PARA RECORRER EL ARRAY DEL API
-      const cards = document.querySelectorAll('.card');
       let cartas = '';
       datos.forEach((producto, i) => {
           const image = producto.image;
@@ -234,18 +322,22 @@ const loadTortas = async() => {
           const title = producto.name;
           const description = producto.description;
           const id = producto.id;
+          const precio = (producto.price).toLocaleString('es-CL');
           cartas +=  `
-            <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
-                <div class="card">
-                    <img src="${image}" id="card-img" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">${title}</h5>
-                        <p class="card-text">${description}</p>
-                        <a href="#" id="btn-agregar" class="btn btn-success">Agregar al carrito</a>
-                        <div class="id-product" style="display:none;">${id}</div>
-                    </div>
+          <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
+            <div class="card">
+              <img src="${image}" id="card-img" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title">${title}</h4><br>
+                    <p class="card-text">${description}</p>
+                    <h5 class="card-title">$${precio}</h5>
                 </div>
-            </div>`  
+                <div class="card-footer">
+                    <a href="#" id="btn-agregar" class="btn btn-success btn-agregar">Agregar al carrito</a>
+                    <div class="id-product" style="display:none;">${id}</div>
+                </div>  
+            </div>
+          </div>`
           ;
       });
       $('#info-cards-tortas').html(cartas);
@@ -282,18 +374,22 @@ const loadCupcakes = async() => {
         const title = producto.name;
         const description = producto.description;
         const id = producto.id;
+        const precio = (producto.price).toLocaleString('es-CL');
         cartas +=  `
-          <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
-              <div class="card">
-                  <img src="${image}" id="card-img" alt="...">
-                  <div class="card-body">
-                      <h5 class="card-title">${title}</h5>
-                      <p class="card-text">${description}</p>
-                      <a href="#" id="btn-agregar" class="btn btn-success">Agregar al carrito</a>
-                      <div class="id-product" style="display:none;">${id}</div>
-                  </div>
+        <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
+          <div class="card">
+            <img src="${image}" id="card-img" alt="...">
+              <div class="card-body">
+                  <h4 class="card-title">${title}</h4><br>
+                  <p class="card-text">${description}</p>
+                  <h5 class="card-title">$${precio}</h5>
               </div>
-          </div>`  
+              <div class="card-footer">
+                  <a href="#" id="btn-agregar" class="btn btn-success btn-agregar">Agregar al carrito</a>
+                  <div class="id-product" style="display:none;">${id}</div>
+              </div>  
+          </div>
+        </div>`
         ;
       });
       $('#info-cards-cupcakes').html(cartas);
@@ -331,18 +427,22 @@ const loadPie = async() => {
         const title = producto.name;
         const description = producto.description;
         const id = producto.id;
+        const precio = (producto.price).toLocaleString('es-CL');
         cartas +=  `
-            <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
-                <div class="card">
-                    <img src="${image}" id="card-img" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">${title}</h5>
-                        <p class="card-text">${description}</p>
-                        <a href="#" id="btn-agregar" class="btn btn-success">Agregar al carrito</a>
-                        <div class="id-product" style="display:none;">${id}</div>
-                    </div>
-                </div>
-            </div>`  
+        <div class="col-12 col-md-3 col-sm-6 col-lg-3 mb-4">
+          <div class="card">
+            <img src="${image}" id="card-img" alt="...">
+              <div class="card-body">
+                  <h4 class="card-title">${title}</h4><br>
+                  <p class="card-text">${description}</p>
+                  <h5 class="card-title">$${precio}</h5>
+              </div>
+              <div class="card-footer">
+                  <a href="#" id="btn-agregar" class="btn btn-success btn-agregar">Agregar al carrito</a>
+                  <div class="id-product" style="display:none;">${id}</div>
+              </div>  
+          </div>
+        </div>`
         ;
       });
       $('#info-cards-pie').html(cartas);
@@ -382,6 +482,5 @@ btnCart.addEventListener('click', () => {
 })
 =======
 
-//FUNCION CARRITO COMPRA
 
 >>>>>>> user-principal

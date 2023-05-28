@@ -27,11 +27,26 @@ body {
   color: #fff;
 }
 
+/*BOTONES*/
+
+.btn{
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: #fff;
+  }
+
+.btn:hover {
+  background-color: #f25d6c;
+  border-color: #f25d6c;
+  color: #fff;
+}
+
 .card-body {
   background-color: #ff9eb5;
 
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /*BTN INICIO SESION Y REGISTRO*/
@@ -40,11 +55,20 @@ body {
   position: absolute;
   margin-left: 22%;
   margin-top: 6px;
+=======
+#navbarNavDropdown{
+  margin-left: 20px;
+>>>>>>> user-principal
 }
-#btn-registrarse{
-  position: absolute;;
-  margin-left: 16%;
-  margin-top: 6px;
+#contenedor-nav .list-sesion{
+  margin-left: 96px;
+}
+/*BTN INICIO SESION Y REGISTRO*/
+#btn-iniciarSesion{
+  margin: 10px;
+}
+#btn-btn-registrarse{
+  margin: 10px;
 }
 >>>>>>> user-principal
 /*CARD*/
@@ -61,7 +85,7 @@ body {
 /*CARRITO COMPRA*/
 
 .nav-icon{
-  padding-left: 1rem;
+  margin-right: 64px;
 }
 .icon-cart{
   width: 30px; 
@@ -77,6 +101,7 @@ body {
 
 .container-icon{
   position: relative;
+  margin: 5px;
 }
 
 .contador-productos{
@@ -179,3 +204,4 @@ body {
 }
 
 
+/**/

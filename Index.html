@@ -9,7 +9,7 @@
 <body>
   <!--Barra de navegacion-->
   <nav class="navbar navbar-expand-lg bg-body-tertiary" style="min-height: 5rem; font-size: 20px; background-color: #ff9eb5 !important;">
-    <div class="container-fluid">
+    <div class="container-fluid" id="contenedor-nav">
       <a class="navbar-brand" href="Index.html">
         <img src="Images/Ima_index/cakeBrand.png" alt="Bootstrap" width="100" height="100">
       </a>
@@ -17,14 +17,18 @@
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNavDropdown">
+      <div class="collapse navbar-collapse d-flex justify-content-center align-items-center" id="navbarNavDropdown">
         <ul class="navbar-nav">
+<<<<<<< HEAD
 <<<<<<< HEAD
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Nuestros productos
 =======
           <li>
+=======
+          <li class ="nav-item">
+>>>>>>> user-principal
             <a class="nav-link" id="btn-all" aria-current="page" href="Index.html">Inicio</a>
           </li>
           <li class="nav-item">
@@ -59,7 +63,7 @@
             <a class="nav-link" href="#">Sobre nosotros</a>
           </li>
           <!--NAV-CARRITO DE COMPRA-->
-          <li class="nav-icon">
+          <li class="nav-icon nav-item">
             <div class="container-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-cart cart-icon">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" stroke="black" />
@@ -88,16 +92,19 @@
           </li>
 =======
               <div id="cart-cards" class="container-cart-products hidden-cart">
-                
               </div>
-              
             </div>
           </li>
-          <li>
-            <a id="btn-iniciarSesion" class="btn btn-danger" href="Ingreso.html">Iniciar sesion</a>
-          </li>
-          <li>
-            <a id="btn-registrarse" class="btn btn-danger" href="Registro.html">Registrarse</a>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <div class="list-sesion">
+              <a id="btn-iniciarSesion" class="btn btn-danger" href="Ingreso.html">Iniciar sesión</a>
+              <a id="btn-registrarse" class="btn btn-danger" href="Registro.html">Registrarse</a>
+              <label id="correo-usuario"></label>
+              <a id="btn-administracion" class="btn btn-danger" href="Administracion.html">Administracion</a>
+              <a id="btn-cerrarSesion" class="btn btn-danger">Cerrar Sesión</a>
+            </div>
           </li>
 >>>>>>> user-principal
         </ul>
@@ -261,7 +268,7 @@
   <!--FUNTIONS JS-->
   <script src="index.js"></script>
   <!--JQUERY-->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
     integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
     crossorigin="anonymous"></script>
