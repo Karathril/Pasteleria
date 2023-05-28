@@ -40,7 +40,6 @@ function mostrarProductosEnCarrito() {
           </svg>                    
         </div>
       </div>`;
-
     total += parseFloat(precio);
   });
   let divFinal =`
@@ -140,7 +139,6 @@ function eliminarTodosLosElementos() {
     const fila = element.parentNode.parentNode;
     fila.remove();
   });
-
   agregarCantCart();
   mostrarProductosEnCarrito();
 }
@@ -232,15 +230,12 @@ const loadCinnamons = async() => {
           </div>`
         ;
       });
-
       $('#info-cards-cinnamon').html(cartas);
-
       const btnAgregar = document.querySelectorAll('#info-cards-cinnamon #btn-agregar');
       btnAgregar.forEach(product => {
         product.removeEventListener('click', clickAgregar);
         product.addEventListener('click', clickAgregar);
       });
-
     }else if (respuesta.status===401) {
       console.log('La url API Invalida!');
     }else if (respuesta.status===404){

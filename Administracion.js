@@ -81,7 +81,6 @@ const loadAll= async() => {
               const respuesta = await fetch("http://localhost:3000/products/" + productId);
               const datos = await respuesta.json();
               const v_image = datos.image;
-
               var nuevoProducto = {
                 id: productId,
                 name: v_nombre,
@@ -89,8 +88,7 @@ const loadAll= async() => {
                 price: v_precio,
                 categoryId: v_categoria,
                 image: v_image
-              }
-              
+              }        
               var result = confirm("¿Estás seguro de actualizar el producto?");
               //SE CONFIRMA LA ACTUALIZACION DE DATOS
               if (result) {
@@ -101,7 +99,6 @@ const loadAll= async() => {
                   },
                   body: JSON.stringify(nuevoProducto)
                 });
-
                 if (!updateResponse.ok) {
                   throw new Error("Error al actualizar los datos");
                 }
@@ -114,7 +111,6 @@ const loadAll= async() => {
             }
           });
         });
-
     }else if (respuesta.status===401) {
       console.log('La url API Invalida!');
     }else if (respuesta.status===404){
