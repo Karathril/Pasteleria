@@ -1,0 +1,190 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Tortas",
+      "description": "Diferentes tortas para escoger"
+    },
+    {
+      "id": 2,
+      "name": "Cinnamon Roll",
+      "description": "Cinnamon Roll es un producto bastante solicitado"
+    },
+    {
+      "id": 3,
+      "name": "Cupcakes",
+      "description": "Cupcakes ideales para comerlos a cualquier hora"
+    },
+    {
+      "id": 4,
+      "name": "Pie",
+      "description": "Pies frescos y innovadores"
+    },
+    {
+      "id": 5,
+      "name": "users"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Torta de crepes con crema y praliné",
+      "description": "Torta de crepes con crema y praliné de almendras",
+      "price": 30000,
+      "categoryId": 1,
+      "image": "Images/Ima_Nuestro_Productos/cakes/1-TORTA DE CRÊPES CON CREMA Y PRALINÉ DE ALMENDRAS.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Torta rojo velve",
+      "description": "Torta red velve con crema especial de la casa",
+      "price": 25000,
+      "categoryId": 1,
+      "image": "Images/Ima_Nuestro_Productos/cakes/2-torta-red-velvet.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Torta de Moka Chocolate",
+      "description": "Torta especial y favoritos del moka con capas de chocolate",
+      "price": 28000,
+      "categoryId": 1,
+      "image": "Images/Ima_Nuestro_Productos/cakes/3- Torta mokka con Chocolate.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Panqueque Naranja",
+      "description": "Panqueque Naranja especial y fresco",
+      "price": 18900,
+      "categoryId": 1,
+      "image": "Images/Ima_Nuestro_Productos/cakes/4- Panqueque Naranja.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Mini Torta rojo",
+      "description": "Mini Torta rojo con crema especial",
+      "price": 4000,
+      "categoryId": 1,
+      "image": "Images/Ima_Nuestro_Productos/cakes/5-mini-torta-red-velvet.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Torta de chocolate sin gluten",
+      "description": "Torta de chocolate sin gluten especial y fresco",
+      "price": 14000,
+      "categoryId": 1,
+      "image": "Images/Ima_Nuestro_Productos/cakes/6-torta-de-chocolate-sin-harina.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Pan de cinnamon Roll",
+      "description": "Pan de cinnamon Roll especial y fresco",
+      "price": 7000,
+      "categoryId": 2,
+      "image": "Images/Ima_Nuestro_Productos/Cinnamon/7-pan-de-cinnamon-roll.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Cinnamon Roll de café",
+      "description": "Cinnamon Roll de café especial y fresco",
+      "price": 3990,
+      "categoryId": 2,
+      "image": "Images/Ima_Nuestro_Productos/Cinnamon/8-cinnamon-rolls-de-café.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Cinnamon Roll de Manzana",
+      "description": "Cinnamon Roll de Manzana especial y fresco",
+      "price": 3790,
+      "categoryId": 2,
+      "image": "Images/Ima_Nuestro_Productos/Cinnamon/9-Cinnamon-de-manzana.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Cinnamon Roll de Miel con Nueces",
+      "description": "Cinnamon Roll de Miel con Nueces especial y fresco",
+      "price": 4990,
+      "categoryId": 2,
+      "image": "Images/Ima_Nuestro_Productos/Cinnamon/10-cinnamon-rolls-con-miel-y-nueces.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Cinnamon Roll de Clásico",
+      "description": "Cinnamon Roll de Chocolate especial y fresco",
+      "price": 3800,
+      "categoryId": 2,
+      "image": "Images/Ima_Nuestro_Productos/Cinnamon/11-cinnamon-classic.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Cupcakes rojo velvet",
+      "description": "Cupcakes rojo velvet especial y fresco",
+      "price": 1500,
+      "categoryId": 3,
+      "image": "Images/Ima_Nuestro_Productos/cupcakes/12-cupcakes-red-velvet.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Cupcakes fruto chocolate",
+      "description": "Cupcakes de chocolate con frutos",
+      "price": 2000,
+      "categoryId": 3,
+      "image": "Images/Ima_Nuestro_Productos/cupcakes/13-cupcakes-fruto-chocolate.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Cupcakes de vainilla",
+      "description": "Cupcakes de vainilla con granulados especial de la casa",
+      "price": 2200,
+      "categoryId": 3,
+      "image": "Images/Ima_Nuestro_Productos/cupcakes/14-cupcakes-vainilla.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Cupcakes coloridos",
+      "description": "Cupcakes clasicos de distintos colores con crema pastelera de casa",
+      "price": 1750,
+      "categoryId": 3,
+      "image": "Images/Ima_Nuestro_Productos/cupcakes/15-cupcakes-color.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Pie de limon",
+      "description": "La especial de la casa, su clasico Pie de limon para compartir",
+      "price": 14000,
+      "categoryId": 4,
+      "image": "Images/Ima_Nuestro_Productos/pie/1-pie-de-limón.jpg"
+    },
+    {
+      "id": 17,
+      "name": "Mini Pie de limon",
+      "description": "La especial de la casa en version Mini Pie de limon para compartir",
+      "price": 950,
+      "categoryId": 4,
+      "image": "Images/Ima_Nuestro_Productos/pie/2-barritas-de-pie-de-limón.jpg"
+    },
+    {
+      "id": 18,
+      "name": "Pie de maracuya",
+      "description": "Un Pie de maracuya para salirse de lo cotidiano",
+      "price": 16750,
+      "categoryId": 4,
+      "image": "Images/Ima_Nuestro_Productos/pie/3-pie-de-maracuyá.jpg"
+    }
+  ],
+  "users": [
+    {
+      "name": "brayan",
+      "email": "karathril@gmail.com",
+      "password": "a@2a@2",
+      "categoryId": 5,
+      "id": 1
+    },
+    {
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "a@1a@1",
+      "categoryId": 5,
+      "id": 2
+    }
+  ]
+}
