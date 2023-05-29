@@ -73,7 +73,7 @@ const loadAll= async() => {
             const v_descripcion = row.querySelector('#input-descripcion').value;
             if (/\d/.test(v_nombre)==true || v_nombre=="" || /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(v_nombre)){ 
               alert("Nombre invalido");
-            }else if (/\s/g.test(v_precio)==true || /[a-zA-Z]/.test(v_precio) || v_precio=="" || /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(v_precio)){ 
+            }else if (/\s/g.test(v_precio)==true || /[a-zA-Z]/.test(v_precio) || v_precio=="" || /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,<>\/?~]/.test(v_precio)){ 
               alert("precio invalido");
             } else if (v_descripcion==""){
               alert("descripcion invalida");
