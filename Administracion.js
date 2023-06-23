@@ -173,5 +173,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+function cerrar_sesion(){
+  localStorage.removeItem('correo');
+};
+
 //FUNCION PARA POBLAR TABLA DE TODOS LOS PRODUCTOSS
 loadAll();
