@@ -1,6 +1,5 @@
 package io.bajeal.pasteleria.endpoint;
 
-import io.bajeal.pasteleria.models.Category;
 import io.bajeal.pasteleria.models.Product;
 import io.bajeal.pasteleria.service.ProductService;
 import lombok.RequiredArgsConstructor;

@@ -5,11 +5,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Product {
+public class User {
     private int id;
     private String name;
-    private String description;
-    private String price;
-    private int categoryId;
-    private String image;
+    private String email;
+    private String password;
+
 }

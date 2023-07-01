@@ -142,5 +142,39 @@
     "id" : 4,
     "name" : "Pie",
     "description" : "Pies frescos y innovadores"
-  } ]
+  } ], "users": [
+    {
+      "id": 1,
+      "name": "pedro",
+      "email": "pedro@gmail.com",
+      "password": "a@2a@2"
+    },
+    {
+      "id": 2,
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "a@1a@1"
+    },
+    {
+      "id": 3,
+      "name": "usuariouno",
+      "email": "usuariouno@gmail.com",
+      "password": "a@2a@2"
+    },
+    {
+      "id": 4,
+      "name": "usuariodos",
+      "email": "usuariodos@gmail.com",
+      "password": "a@2a@2"
+    }
+  ], "contactos" : [
+  {
+    "id": 1,
+    "name": "usuariotres",
+    "email": "usuariotres@gmail.com",
+    "asunto": "tarta",
+    "mensaje": "La tarta estuvo deliciosa"
+  }
+
+  ]
 }

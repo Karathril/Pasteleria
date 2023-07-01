@@ -442,7 +442,6 @@ function sesionUsuario(botones1, botones2, correo) {
     }else{
         botones1.style.display = "block";
         botones2.style.display = "none";
-        botoncerrarAdminis.style.display = "none";
         cambiarContenidoLabel("");
         function cambiarContenidoLabel(nuevoContenido) {
             if (labelCorreo) {

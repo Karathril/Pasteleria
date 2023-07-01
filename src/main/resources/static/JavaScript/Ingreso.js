@@ -1,36 +1,54 @@
 $("#login").click(function() {
-  var ingreso_email = $("#ingreso_email").val();
-  var ingreso_password = $("#ingreso_password").val();
-  
-  
-  $.getJSON('http://localhost:3000/users', function(data) {
-    function verificarUsuario(ingreso_email, ingreso_password, productos) {
-      for (let i = 0; i < productos.length; i++) {
-        if (productos[i].email === ingreso_email && productos[i].password === ingreso_password) {
-          return true;
-        }
-      }
-      return false;
-    }
-    
-    if (verificarUsuario(ingreso_email, ingreso_password, data)) {
-      localStorage.setItem('correo', ingreso_email);
-      if (ingreso_email === 'admin@gmail.com' && ingreso_password === 'a@1a@1'){
-        alert("Entro como Administrador");
-        window.location.href = "Administracion.html";
-      }else{
-        alert("Entro como "+ingreso_email);
-        window.location.href = "index.html";
-      };
-    } else {
-      alert("Usuario incorrecto");
-      localStorage.removeItem('correo');
+  var v_email = $("#ingreso_email").val();
+  var v_password = $("#ingreso_password").val();
+  var userList = [];
 
-    }
-  });
+
+    fetch('/users')
+        .then(function(response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Error en la respuesta del servidor');
+            }
+        })
+        .then(function(data) {
+            // Almacenar los datos de los usuarios en la lista userList
+            userList = data.users;
+            console.log(userList); // Mostrar los datos en la consola (opcional)
+
+                // Iterar sobre la lista de usuarios y comparar email y contraseña
+                for (var i = 0; i < userList.length; i++) {
+                    var user = userList[i];
+                    if (user.email === v_email && user.password === v_password) {
+                        console.log("Credenciales correctas");
+                        localStorage.setItem('correo', v_email);
+                        if (v_email === 'admin@gmail.com' && v_password === 'a@1a@1'){
+                            alert("Entro como Administrador");
+                            window.location.href = "administracion.html";
+                        }else{
+                            alert("Entro como "+v_email);
+                            window.location.href = "index.html";
+                        };
+
+                    }else {
+                        console.log("Credenciales incorrectas");
+                        localStorage.removeItem('correo');
+
+                    }
+                }
+
+
+
+
+        })
+        .catch(function(error) {
+            console.error('Error:', error);
+        });
 });
 
 $("#regresar").click(function() {
-  localStorage.removeItem('correo');
-  window.location.href = "index.html";
+    localStorage.removeItem('correo');
+    window.location.href = "index.html";
+
 });
