@@ -22,6 +22,7 @@ $("#login").click(function() {
                     var user = userList[i];
                     if (user.email === v_email && user.password === v_password) {
                         console.log("Credenciales correctas");
+
                         localStorage.setItem('correo', v_email);
                         if (v_email === 'admin@gmail.com' && v_password === 'a@1a@1'){
                             alert("Entro como Administrador");
@@ -33,8 +34,6 @@ $("#login").click(function() {
 
                     }else {
                         console.log("Credenciales incorrectas");
-                        localStorage.removeItem('correo');
-
                     }
                 }
 
@@ -48,7 +47,6 @@ $("#login").click(function() {
 });
 
 $("#regresar").click(function() {
-    localStorage.removeItem('correo');
     window.location.href = "index.html";
 
 });

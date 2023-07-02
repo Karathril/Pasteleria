@@ -92,3 +92,32 @@ $("#enviar").click(function(){
 
     };
 });
+
+
+function setFields(){
+
+    let cosa = localStorage.getItem('correo');
+    document.getElementById('email').value = cosa;
+
+
+    var url = "http://localhost:8081/users";
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+
+            let cosasLocas = data.users;
+
+            for(usuario in cosasLocas){
+                let locotron = cosasLocas[usuario];
+                if(cosa === locotron['email']){
+                    document.getElementById('nombre').value = locotron['name'];
+                }
+            }
+        })
+        .catch(error => {
+            console.error(error);
+        });
+};
+
+setFields();

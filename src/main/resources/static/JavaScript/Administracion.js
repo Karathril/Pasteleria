@@ -175,3 +175,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //FUNCION PARA POBLAR TABLA DE TODOS LOS PRODUCTOSS
 loadAll();
+
+//funcion para contactos administracion
+function poblarContactos(){
+
+  var url = "http://localhost:8081/contactos";
+
+  fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        let cosasLocas = data.contactos;
+
+        for (let contacto of cosasLocas) {
+          let card = `
+        <div class="card col-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title text-white" id="email">Contacto de: ${contacto.email}</h5>
+            <h5 class="text-white" id="asunto">Asunto: ${contacto.asunto}</h5>
+            <p class="card-text text-white" id="mensaje">${contacto.mensaje}</p>
+          </div>
+        </div>`;
+          document.getElementById('contactos').innerHTML += card;
+        }
+      })
+
+      .catch(error => {
+        console.error(error);
+      });
+}
+poblarContactos();

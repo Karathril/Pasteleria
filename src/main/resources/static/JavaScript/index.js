@@ -423,6 +423,7 @@ function obtenerCorreoLocalStorage() {
     return localStorage.getItem('correo');
 };
 var correo = obtenerCorreoLocalStorage();
+
 //FUNCION PARA CERRAR SESION
 botoncerrarSesion.addEventListener('click', function() {
     localStorage.removeItem('correo');
